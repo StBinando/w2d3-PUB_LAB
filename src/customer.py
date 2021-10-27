@@ -1,5 +1,3 @@
-import pdb
-
 class Customer:
     def __init__(self, name, wallet, age, drunkness):
         self.name = name
@@ -26,7 +24,6 @@ class Customer:
         return self.can_afford_drink(drink) and self.is_of_age(drink) and self.is_not_drunk()
         
     def buy_drink(self, drink, pub):
-        # pdb.set_trace()
         if self.can_buy_drink(drink) and pub.pub_has_drink(drink):
             self.wallet -= drink.price
             pub.till += drink.price
