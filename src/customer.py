@@ -7,6 +7,11 @@ class Customer:
         return drink.price <= self.wallet
     
     def buy_drink(self, drink, pub):
-        if pub.pub_has_drink(drink) and self.can_afford_drink(drink):
-            self.wallet -= drink.price
-            pub.till += drink.price
+        if pub.pub_has_drink(drink):
+            if self.can_afford_drink(drink):
+                self.wallet -= drink.price
+                pub.till += drink.price
+            else:
+                return "cannot afford"
+        else:
+            return "not in stock"

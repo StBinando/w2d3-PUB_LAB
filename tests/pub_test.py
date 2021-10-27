@@ -22,3 +22,6 @@ class PubTest(unittest.TestCase):
 
     def test_pub2_has_drinks(self):
         self.assertEqual(2, len(self.pub2.drinks))
+
+    def test_pub2_has_beer(self):
+        self.assertTrue(self.pub2.pub_has_drink(self.drink2))

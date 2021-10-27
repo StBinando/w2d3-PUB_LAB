@@ -24,3 +24,9 @@ class CustomerTest(unittest.TestCase):
         self.customer1.buy_drink(self.drink1, self.pub2)
         self.assertEqual(self.customer1.wallet, 7.50)
         self.assertEqual(self.pub2.till, 202.5)
+
+    def test_customer_drink_not_in_stock(self):
+        self.assertEqual("not in stock", self.customer1.buy_drink(self.drink2, self.pub))
+
+    def test_customer_cannot_afford(self):
+        self.assertEqual("cannot afford", self.customer2.buy_drink(self.drink2, self.pub2))
