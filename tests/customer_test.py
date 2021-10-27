@@ -6,8 +6,8 @@ from src.drink import Drink
 class CustomerTest(unittest.TestCase):
 
     def setUp(self):
-        self.customer1 = Customer("Russell", 10.00)
-        self.customer2 = Customer("Stefano", 1.00)
+        self.customer1 = Customer("Russell", 10.00, 17, 0)
+        self.customer2 = Customer("Stefano", 1.00, 47, 8)
         self.pub = Pub("Red Lion", 100, [])
         self.drink1 = Drink("orange juice", 2.50, 0)
         self.drink2 = Drink("beer", 6, 2)
@@ -26,7 +26,14 @@ class CustomerTest(unittest.TestCase):
         self.assertEqual(self.pub2.till, 202.5)
 
     def test_customer_drink_not_in_stock(self):
-        self.assertEqual("not in stock", self.customer1.buy_drink(self.drink2, self.pub))
+        self.assertEqual("sorry pal", self.customer1.buy_drink(self.drink2, self.pub))
 
     def test_customer_cannot_afford(self):
-        self.assertEqual("cannot afford", self.customer2.buy_drink(self.drink2, self.pub2))
+        self.assertEqual("sorry pal", self.customer2.buy_drink(self.drink2, self.pub2))
+
+    def test_customer_has_age(self):
+        self.assertEqual(17, self.customer1.age)
+
+    def test_customer_has_drunkness_value(self):
+        self.assertEqual(8, self.customer2.drunkness)
+        

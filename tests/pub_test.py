@@ -7,7 +7,7 @@ class PubTest(unittest.TestCase):
     def setUp(self):
         self.pub = Pub("Red Lion", 100, [])
         self.drink1 = Drink("orange juice", 2.50, 0)
-        self.drink2 = Drink("beer", 6, 2)
+        self.drink2 = Drink("beer", 6, 4)
         self.drinks = [self.drink1, self.drink2]
         self.pub2 = Pub("Purple Lion", 200, self.drinks)
 
