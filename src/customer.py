@@ -30,6 +30,7 @@ class Customer:
         if self.can_buy_drink(drink) and pub.pub_has_drink(drink):
             self.wallet -= drink.price
             pub.till += drink.price
+            self.drunkness += drink.alcohol_level
         else:
             return "sorry pal"
 
